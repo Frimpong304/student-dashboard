@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.dashboard.controller.AdminController"
+            styleClass="root">
+
+    <!-- ── Sidebar ───────────────────────────────────────────── -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="230" spacing="0">
+
+            <!-- Profile -->
+            <VBox styleClass="sidebar-profile"
+                  alignment="CENTER" spacing="8">
+                <padding>
+                    <Insets top="30" bottom="20"/>
+                </padding>
+                <Circle radius="40" styleClass="profile-avatar-bg"/>
+                <Label text="⚙" styleClass="avatar-initials"/>
+                <Label fx:id="adminNameLabel"
+                       styleClass="sidebar-name"/>
+                <Label text="System Administrator"
+                       styleClass="sidebar-major"/>
+                <Label text="University of Cape Coast"
+                       styleClass="sidebar-major"/>
+            </VBox>
+
+            <Separator styleClass="sidebar-separator"/>
+
+            <!-- Nav -->
+            <VBox styleClass="nav-menu" spacing="4">
+                <padding>
+                    <Insets top="16" left="12"
+                            right="12" bottom="16"/>
+                </padding>
+                <Button fx:id="navDashboard"
+                        text="🏠  Dashboard"
+                        onAction="#handleNavDashboard"
+                        styleClass="nav-button, nav-active"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navStudents"
+                        text="👥  Students"
+                        onAction="#handleNavStudents"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navLecturers"
+                        text="👨‍🏫  Lecturers"
+                        onAction="#handleNavLecturers"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navCourses"
+                        text="📚  Courses"
+                        onAction="#handleNavCourses"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navEnrollments"
+                        text="📋  Enrollments"
+                        onAction="#handleNavEnrollments"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navReports"
+                        text="📊  Reports"
+                        onAction="#handleNavReports"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navApprovals"
+                        text="✅  Grade Approvals"
+                        onAction="#handleNavApprovals"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navFeeManagement"
+                        text="💰  Fee Management"
+                        onAction="#handleNavFeeManagement"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navBackup"
+                        text="💾  Backup &amp; Restore"
+                        onAction="#handleNavBackup"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Logout -->
+            <VBox styleClass="sidebar-footer">
+                <padding>
+                    <Insets top="10" left="12"
+                            right="12" bottom="20"/>
+                </padding>
+                <Button text="⏻  Logout"
+                        onAction="#handleLogout"
+                        styleClass="logout-button"
+                        maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- ── Main Content ───────────────────────────────────────── -->
+    <center>
+        <VBox styleClass="main-content" spacing="0">
+
+            <!-- Top Bar -->
+            <HBox styleClass="topbar"
+                  alignment="CENTER_LEFT" spacing="16">
+                <padding>
+                    <Insets top="16" right="24"
+                            bottom="16" left="24"/>
+                </padding>
+                <Label fx:id="pageTitle"
+                       text="Admin Dashboard"
+                       styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="UCC Portal — Admin"
+                       styleClass="semester-label-dark"/>
+            </HBox>
+
+            <Separator/>
+
+            <!-- Dynamic Content -->
+            <ScrollPane fitToWidth="true"
+                        VBox.vgrow="ALWAYS"
+                        styleClass="content-scroll">
+                <VBox fx:id="contentArea" spacing="24"
+                      styleClass="content-area">
+                    <padding>
+                        <Insets top="24" right="24"
+                                bottom="24" left="24"/>
+                    </padding>
+
+                    <!-- Welcome Banner -->
+                    <HBox styleClass="welcome-banner"
+                          alignment="CENTER_LEFT" spacing="16">
+                        <padding>
+                            <Insets top="20" right="24"
+                                    bottom="20" left="24"/>
+                        </padding>
+                        <VBox spacing="4">
+                            <Label fx:id="welcomeLabel"
+                                   text="Welcome, Admin!"
+                                   styleClass="welcome-title"/>
+                            <Label fx:id="dateLabel"
+                                   styleClass="welcome-date"/>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <VBox alignment="CENTER_RIGHT" spacing="4">
+                            <Label text="Full System Access"
+                                   styleClass="semester-label"/>
+                            <Label text="University of Cape Coast"
+                                   styleClass="year-label"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Stat Cards -->
+                    <HBox spacing="16">
+                        <VBox styleClass="stat-card"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <padding>
+                                <Insets top="20" right="16"
+                                        bottom="20" left="16"/>
+                            </padding>
+                            <Label text="👥" styleClass="stat-icon"/>
+                            <Label fx:id="totalStudentsLabel"
+                                   text="0" styleClass="stat-value"/>
+                            <Label text="Students"
+                                   styleClass="stat-title"/>
+                        </VBox>
+                        <VBox styleClass="stat-card"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <padding>
+                                <Insets top="20" right="16"
+                                        bottom="20" left="16"/>
+                            </padding>
+                            <Label text="👨‍🏫" styleClass="stat-icon"/>
+                            <Label fx:id="totalLecturersLabel"
+                                   text="0" styleClass="stat-value"/>
+                            <Label text="Lecturers"
+                                   styleClass="stat-title"/>
+                        </VBox>
+                        <VBox styleClass="stat-card"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <padding>
+                                <Insets top="20" right="16"
+                                        bottom="20" left="16"/>
+                            </padding>
+                            <Label text="📚" styleClass="stat-icon"/>
+                            <Label fx:id="totalCoursesLabel"
+                                   text="0" styleClass="stat-value"/>
+                            <Label text="Courses"
+                                   styleClass="stat-title"/>
+                        </VBox>
+                        <VBox styleClass="stat-card, stat-card-info"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <padding>
+                                <Insets top="20" right="16"
+                                        bottom="20" left="16"/>
+                            </padding>
+                            <Label text="📋" styleClass="stat-icon"/>
+                            <Label fx:id="totalEnrollmentsLabel"
+                                   text="0" styleClass="stat-value"/>
+                            <Label text="Enrollments"
+                                   styleClass="stat-title"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Recent Students -->
+                    <VBox styleClass="section-card" spacing="12">
+                        <padding>
+                            <Insets top="20" right="20"
+                                    bottom="20" left="20"/>
+                        </padding>
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="Recent Students"
+                                   styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="View All"
+                                    onAction="#handleNavStudents"
+                                    styleClass="link-button"/>
+                        </HBox>
+                        <TableView fx:id="recentStudentsTable"
+                                   prefHeight="200">
+                            <columns>
+                                <TableColumn fx:id="rsNumCol"
+                                             text="Student No."
+                                             prefWidth="130"/>
+                                <TableColumn fx:id="rsNameCol"
+                                             text="Name"
+                                             prefWidth="180"/>
+                                <TableColumn fx:id="rsMajorCol"
+                                             text="Major"
+                                             prefWidth="150"/>
+                                <TableColumn fx:id="rsYearCol"
+                                             text="Year"
+                                             prefWidth="60"/>
+                                <TableColumn fx:id="rsEmailCol"
+                                             text="Email"
+                                             prefWidth="200"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                    <!-- Recent Lecturers -->
+                    <VBox styleClass="section-card" spacing="12">
+                        <padding>
+                            <Insets top="20" right="20"
+                                    bottom="20" left="20"/>
+                        </padding>
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="Lecturers"
+                                   styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="View All"
+                                    onAction="#handleNavLecturers"
+                                    styleClass="link-button"/>
+                        </HBox>
+                        <TableView fx:id="recentLecturersTable"
+                                   prefHeight="200">
+                            <columns>
+                                <TableColumn fx:id="rlNameCol"
+                                             text="Name"
+                                             prefWidth="200"/>
+                                <TableColumn fx:id="rlTitleCol"
+                                             text="Title"
+                                             prefWidth="80"/>
+                                <TableColumn fx:id="rlDeptCol"
+                                             text="Department"
+                                             prefWidth="160"/>
+                                <TableColumn fx:id="rlEmailCol"
+                                             text="Email"
+                                             prefWidth="220"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                </VBox>
+            </ScrollPane>
+
+            <!-- Status Bar -->
+            <HBox styleClass="status-bar"
+                  alignment="CENTER_LEFT" spacing="12">
+                <padding>
+                    <Insets top="8" right="16"
+                            bottom="8" left="16"/>
+                </padding>
+                <Circle radius="5" styleClass="status-dot"/>
+                <Label fx:id="statusLabel"
+                       text="Ready"
+                       styleClass="status-text"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="statsLabel"
+                       styleClass="stats-text"/>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

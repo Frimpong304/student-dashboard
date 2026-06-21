@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dashboard.controller.QuizzesController"
+      spacing="16" styleClass="content-area">
+
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="My Quizzes" styleClass="section-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="quizFilterCombo"
+                  prefWidth="160"
+                  promptText="Filter..."/>
+    </HBox>
+
+    <!-- Stats -->
+    <HBox spacing="12">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="4">
+            <padding><Insets top="12" bottom="12"/></padding>
+            <Label fx:id="qTotalLabel"
+                   text="0" styleClass="stat-value"/>
+            <Label text="Total" styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="4">
+            <padding><Insets top="12" bottom="12"/></padding>
+            <Label fx:id="qCompletedLabel"
+                   text="0" styleClass="stat-value"/>
+            <Label text="Completed" styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card, stat-card-warning"
+              HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+            <padding><Insets top="12" bottom="12"/></padding>
+            <Label fx:id="qPendingLabel"
+                   text="0" styleClass="stat-value"/>
+            <Label text="Pending" styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card, stat-card-info"
+              HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+            <padding><Insets top="12" bottom="12"/></padding>
+            <Label fx:id="qAvgLabel"
+                   text="--" styleClass="stat-value"/>
+            <Label text="Avg Score" styleClass="stat-title"/>
+        </VBox>
+    </HBox>
+
+    <!-- Quizzes Table -->
+    <VBox styleClass="section-card" spacing="12"
+          VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <TableView fx:id="quizzesTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="qCourseCol"
+                             text="Course" prefWidth="90"/>
+                <TableColumn fx:id="qTitleCol"
+                             text="Quiz Title" prefWidth="230"/>
+                <TableColumn fx:id="qDueCol"
+                             text="Due Date" prefWidth="110"/>
+                <TableColumn fx:id="qDurationCol"
+                             text="Duration" prefWidth="90"/>
+                <TableColumn fx:id="qQuestionsCol"
+                             text="Questions" prefWidth="90"/>
+                <TableColumn fx:id="qStatusCol"
+                             text="Status" prefWidth="160"/>
+            </columns>
+            <placeholder>
+                <Label text="No quizzes found."/>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+</VBox>

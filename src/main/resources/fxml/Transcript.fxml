@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dashboard.controller.TranscriptController"
+      spacing="16" styleClass="content-area">
+
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <!-- Header -->
+    <VBox styleClass="welcome-banner" spacing="6">
+        <padding>
+            <Insets top="20" right="24" bottom="20" left="24"/>
+        </padding>
+        <Label text="University of Cape Coast"
+               styleClass="welcome-date"/>
+        <Label text="Official Academic Transcript"
+               styleClass="welcome-title"/>
+        <Label fx:id="transcriptStudentLabel"
+               text="Student: --"
+               styleClass="welcome-date"/>
+        <Label fx:id="transcriptNumLabel"
+               text="Student No: --"
+               styleClass="welcome-date"/>
+        <Label fx:id="transcriptMajorLabel"
+               text="Programme: --"
+               styleClass="welcome-date"/>
+    </VBox>
+
+    <!-- Semester GPA Summary -->
+    <VBox styleClass="section-card" spacing="12">
+        <padding>
+            <Insets top="16" right="20" bottom="16" left="20"/>
+        </padding>
+        <Label text="Semester GPA Summary"
+               styleClass="section-title"/>
+        <TableView fx:id="semesterTable" prefHeight="160">
+            <columns>
+                <TableColumn fx:id="semCol"
+                             text="Semester" prefWidth="220"/>
+                <TableColumn fx:id="semCoursesCol"
+                             text="Courses" prefWidth="80"/>
+                <TableColumn fx:id="semPointsCol"
+                             text="Total Points" prefWidth="120"/>
+                <TableColumn fx:id="semGpaCol"
+                             text="Semester GPA" prefWidth="120"/>
+                <TableColumn fx:id="semRemarkCol"
+                             text="Remark" prefWidth="160"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- Full Transcript Table -->
+    <VBox styleClass="section-card" spacing="12"
+          VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets top="16" right="20" bottom="16" left="20"/>
+        </padding>
+        <HBox alignment="CENTER_LEFT">
+            <Label text="Course Results"
+                   styleClass="section-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <VBox alignment="CENTER_RIGHT" spacing="2">
+                <Label fx:id="cgpaLabel"
+                       text="CGPA: --"
+                       styleClass="sidebar-gpa"
+                       style="-fx-font-size: 16px;"/>
+                <Label fx:id="cgpaRemarkLabel"
+                       text="--"
+                       styleClass="stats-text"/>
+            </VBox>
+        </HBox>
+        <TableView fx:id="transcriptTable"
+                   VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="tSemCol"
+                             text="Semester" prefWidth="180"/>
+                <TableColumn fx:id="tCodeCol"
+                             text="Code" prefWidth="80"/>
+                <TableColumn fx:id="tNameCol"
+                             text="Course Name" prefWidth="200"/>
+                <TableColumn fx:id="tCreditsCol"
+                             text="Credits" prefWidth="70"/>
+                <TableColumn fx:id="tScoreCol"
+                             text="Score" prefWidth="70"/>
+                <TableColumn fx:id="tLetterCol"
+                             text="Grade" prefWidth="70"/>
+                <TableColumn fx:id="tPointsCol"
+                             text="Points" prefWidth="70"/>
+            </columns>
+            <placeholder>
+                <Label text="No transcript records yet."/>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+</VBox>

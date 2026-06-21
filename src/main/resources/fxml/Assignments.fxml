@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dashboard.controller.AssignmentsController"
+      spacing="16" styleClass="content-area">
+
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <!-- Filter Bar -->
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="My Assignments" styleClass="section-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="filterCombo" prefWidth="160"
+                  promptText="Filter..."/>
+        <TextField fx:id="searchField"
+                   promptText="🔍  Search..."
+                   prefWidth="200"/>
+    </HBox>
+
+    <!-- Stats Row -->
+    <HBox spacing="12">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="4">
+            <padding><Insets top="12" bottom="12"/></padding>
+            <Label fx:id="totalLabel"   text="0" styleClass="stat-value"/>
+            <Label text="Total"         styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="4">
+            <padding><Insets top="12" bottom="12"/></padding>
+            <Label fx:id="submittedLabel" text="0" styleClass="stat-value"/>
+            <Label text="Submitted"       styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card, stat-card-warning"
+              HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+            <padding><Insets top="12" bottom="12"/></padding>
+            <Label fx:id="pendingLabel" text="0" styleClass="stat-value"/>
+            <Label text="Pending"       styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card, stat-card-info"
+              HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+            <padding><Insets top="12" bottom="12"/></padding>
+            <Label fx:id="overdueLabel" text="0" styleClass="stat-value"/>
+            <Label text="Overdue"       styleClass="stat-title"/>
+        </VBox>
+    </HBox>
+
+    <!-- Assignments Table -->
+    <VBox styleClass="section-card" spacing="12" VBox.vgrow="ALWAYS">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+        <TableView fx:id="assignmentsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="aCourseCol"
+                             text="Course" prefWidth="90"/>
+                <TableColumn fx:id="aTitleCol"
+                             text="Title" prefWidth="220"/>
+                <TableColumn fx:id="aDueCol"
+                             text="Due Date" prefWidth="110"/>
+                <TableColumn fx:id="aPriorityCol"
+                             text="Priority" prefWidth="80"/>
+                <TableColumn fx:id="aStatusCol"
+                             text="Status" prefWidth="140"/>
+                <TableColumn fx:id="aScoreCol"
+                             text="Score" prefWidth="80"/>
+            </columns>
+            <placeholder>
+                <Label text="No assignments found."/>
+            </placeholder>
+        </TableView>
+
+        <!-- Submit Button -->
+        <HBox spacing="12" alignment="CENTER_LEFT">
+            <Button fx:id="submitBtn"
+                    text="✅  Mark as Submitted"
+                    onAction="#handleSubmit"
+                    styleClass="primary-button"/>
+            <Label fx:id="submitFeedbackLabel"
+                   text="" styleClass="login-error"/>
+        </HBox>
+    </VBox>
+
+</VBox>

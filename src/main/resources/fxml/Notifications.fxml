@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dashboard.controller.NotificationsController"
+      spacing="16" styleClass="content-area">
+
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <Label text="Notifications &amp; Announcements"
+           styleClass="section-title"/>
+
+    <!-- Overdue Alerts -->
+    <VBox styleClass="section-card" spacing="10">
+        <padding>
+            <Insets top="16" right="20" bottom="16" left="20"/>
+        </padding>
+        <Label text="🔴 Overdue Items"
+               styleClass="section-title"/>
+        <ListView fx:id="overdueList" prefHeight="150"
+                  styleClass="deadline-list"/>
+    </VBox>
+
+    <!-- Upcoming -->
+    <VBox styleClass="section-card" spacing="10">
+        <padding>
+            <Insets top="16" right="20" bottom="16" left="20"/>
+        </padding>
+        <Label text="🕐 Due Soon (Next 7 Days)"
+               styleClass="section-title"/>
+        <ListView fx:id="upcomingList" prefHeight="150"
+                  styleClass="deadline-list"/>
+    </VBox>
+
+    <!-- Announcements -->
+    <VBox styleClass="section-card" spacing="10"
+          VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets top="16" right="20" bottom="16" left="20"/>
+        </padding>
+        <Label text="📢 Lecturer Announcements"
+               styleClass="section-title"/>
+        <ListView fx:id="announcementsList"
+                  VBox.vgrow="ALWAYS"
+                  styleClass="notification-list"/>
+    </VBox>
+
+</VBox>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dashboard.controller.CourseRegistrationController"
+      spacing="16" styleClass="content-area">
+
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Course Registration"
+               styleClass="section-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <VBox alignment="CENTER_RIGHT" spacing="2">
+            <Label fx:id="windowStatusLabel"
+                   text="Registration: Checking..."
+                   style="-fx-font-weight: bold;
+                          -fx-font-size: 12px;"/>
+            <Label fx:id="windowDatesLabel"
+                   text="" styleClass="stats-text"/>
+        </VBox>
+    </HBox>
+
+    <!-- Registration Status Banner -->
+    <HBox fx:id="statusBanner" styleClass="welcome-banner"
+          alignment="CENTER_LEFT" spacing="16"
+          visible="false" managed="false">
+        <padding>
+            <Insets top="14" right="20" bottom="14" left="20"/>
+        </padding>
+        <Label fx:id="bannerLabel"
+               text="" styleClass="welcome-title"
+               style="-fx-font-size: 14px;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="creditSummaryLabel"
+               text="" styleClass="semester-label"/>
+    </HBox>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+        <!-- Available Courses -->
+        <VBox styleClass="section-card" spacing="12"
+              HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets top="20" right="20"
+                        bottom="20" left="20"/>
+            </padding>
+            <HBox alignment="CENTER_LEFT">
+                <Label text="Available Courses"
+                       styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="searchField"
+                           promptText="🔍 Search..."
+                           prefWidth="180"/>
+            </HBox>
+
+            <TableView fx:id="availableTable"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="avCodeCol"
+                                 text="Code" prefWidth="80"/>
+                    <TableColumn fx:id="avNameCol"
+                                 text="Course Name"
+                                 prefWidth="200"/>
+                    <TableColumn fx:id="avCreditsCol"
+                                 text="Cr." prefWidth="40"/>
+                    <TableColumn fx:id="avLecturerCol"
+                                 text="Lecturer"
+                                 prefWidth="160"/>
+                    <TableColumn fx:id="avStatusCol"
+                                 text="Status"
+                                 prefWidth="100"/>
+                </columns>
+                <placeholder>
+                    <Label text="No courses available."/>
+                </placeholder>
+            </TableView>
+
+            <HBox spacing="10">
+                <Button text="➕  Register Course"
+                        onAction="#handleRegister"
+                        styleClass="primary-button"/>
+                <Button text="🗑  Drop Course"
+                        onAction="#handleDrop"
+                        styleClass="danger-button"/>
+            </HBox>
+        </VBox>
+
+        <!-- My Registered Courses -->
+        <VBox styleClass="section-card" spacing="12"
+              prefWidth="320">
+            <padding>
+                <Insets top="20" right="20"
+                        bottom="20" left="20"/>
+            </padding>
+            <Label text="My Registered Courses"
+                   styleClass="section-title"/>
+
+            <TableView fx:id="registeredTable"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="rgCodeCol"
+                                 text="Code" prefWidth="70"/>
+                    <TableColumn fx:id="rgNameCol"
+                                 text="Course" prefWidth="150"/>
+                    <TableColumn fx:id="rgStatusCol"
+                                 text="Status" prefWidth="80"/>
+                </columns>
+                <placeholder>
+                    <Label text="No courses registered."/>
+                </placeholder>
+            </TableView>
+
+            <!-- Credit Summary -->
+            <VBox styleClass="progress-card" spacing="6">
+                <Label text="Credit Summary"
+                       styleClass="login-field-label"/>
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="Total Credits:"
+                           styleClass="stats-text"/>
+                    <Label fx:id="totalCreditsLabel"
+                           text="0"
+                           style="-fx-font-weight: bold;
+                                  -fx-text-fill: #006B3F;"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="Courses Registered:"
+                           styleClass="stats-text"/>
+                    <Label fx:id="totalCoursesLabel"
+                           text="0"
+                           style="-fx-font-weight: bold;
+                                  -fx-text-fill: #006B3F;"/>
+                </HBox>
+            </VBox>
+
+            <Label fx:id="regFeedbackLabel"
+                   text="" wrapText="true"
+                   styleClass="login-error"/>
+        </VBox>
+
+    </HBox>
+</VBox>

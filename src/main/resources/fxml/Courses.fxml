@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dashboard.controller.CoursesController"
+      spacing="16" styleClass="content-area">
+
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="My Enrolled Courses"
+               styleClass="section-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="semesterLabel"
+               text="2025/2026 Second Semester"
+               styleClass="semester-label-dark"/>
+    </HBox>
+
+    <!-- Courses Table -->
+    <VBox styleClass="section-card" spacing="12" VBox.vgrow="ALWAYS">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+        <TableView fx:id="coursesTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="codeCol"
+                             text="Code" prefWidth="90"/>
+                <TableColumn fx:id="nameCol"
+                             text="Course Name" prefWidth="230"/>
+                <TableColumn fx:id="creditsCol"
+                             text="Credits" prefWidth="70"/>
+                <TableColumn fx:id="instructorCol"
+                             text="Lecturer" prefWidth="200"/>
+                <TableColumn fx:id="scheduleCol"
+                             text="Semester" prefWidth="180"/>
+                <TableColumn fx:id="progressCol"
+                             text="Progress" prefWidth="120"/>
+            </columns>
+            <placeholder>
+                <Label text="No courses enrolled."/>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+    <!-- Course Detail Card -->
+    <VBox fx:id="detailCard" styleClass="section-card"
+          spacing="10" visible="false" managed="false">
+        <padding><Insets top="16" right="20" bottom="16" left="20"/></padding>
+        <Label text="Course Details" styleClass="section-title"/>
+        <GridPane hgap="16" vgap="8">
+            <Label text="Code:"       GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="login-field-label"/>
+            <Label fx:id="detailCode" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label text="Name:"       GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="login-field-label"/>
+            <Label fx:id="detailName" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label text="Lecturer:"   GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="login-field-label"/>
+            <Label fx:id="detailLecturer" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Label text="Credits:"    GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="login-field-label"/>
+            <Label fx:id="detailCredits"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="login-field-label"/>
+            <Label fx:id="detailDesc" GridPane.columnIndex="1" GridPane.rowIndex="4" wrapText="true"/>
+        </GridPane>
+    </VBox>
+
+</VBox>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.dashboard.controller.LecturerController"
+            styleClass="root">
+
+    <!-- ── Sidebar ───────────────────────────────────────────── -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="230" spacing="0">
+
+            <!-- Profile -->
+            <VBox styleClass="sidebar-profile"
+                  alignment="CENTER" spacing="8">
+                <padding>
+                    <Insets top="30" bottom="20"/>
+                </padding>
+                <Circle radius="40" styleClass="profile-avatar-bg"/>
+                <Label fx:id="lecturerInitialsLabel"
+                       styleClass="avatar-initials"/>
+                <Label fx:id="lecturerNameLabel"
+                       styleClass="sidebar-name"/>
+                <Label fx:id="lecturerTitleLabel"
+                       styleClass="sidebar-major"/>
+                <Label fx:id="departmentLabel"
+                       styleClass="sidebar-major"/>
+            </VBox>
+
+            <Separator styleClass="sidebar-separator"/>
+
+            <!-- Nav -->
+            <VBox styleClass="nav-menu" spacing="4">
+                <padding>
+                    <Insets top="16" left="12"
+                            right="12" bottom="16"/>
+                </padding>
+                <Button fx:id="navOverview"
+                        text="🏠  Overview"
+                        onAction="#handleNavOverview"
+                        styleClass="nav-button, nav-active"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navMyCourses"
+                        text="📚  My Courses"
+                        onAction="#handleNavMyCourses"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navGrades"
+                        text="📊  Enter Grades"
+                        onAction="#handleNavGrades"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navAssignments"
+                        text="📝  Assignments"
+                        onAction="#handleNavAssignments"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navQuizzes"
+                        text="✏️  Quizzes"
+                        onAction="#handleNavQuizzes"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navStudents"
+                        text="👥  Students"
+                        onAction="#handleNavStudents"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navAnnouncements"
+                        text="📢  Announcements"
+                        onAction="#handleNavAnnouncements"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Logout -->
+            <VBox styleClass="sidebar-footer">
+                <padding>
+                    <Insets top="10" left="12"
+                            right="12" bottom="20"/>
+                </padding>
+                <Button text="⏻  Logout"
+                        onAction="#handleLogout"
+                        styleClass="logout-button"
+                        maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- ── Main Content ───────────────────────────────────────── -->
+    <center>
+        <VBox styleClass="main-content" spacing="0">
+
+            <!-- Top Bar -->
+            <HBox styleClass="topbar"
+                  alignment="CENTER_LEFT" spacing="16">
+                <padding>
+                    <Insets top="16" right="24"
+                            bottom="16" left="24"/>
+                </padding>
+                <Label fx:id="pageTitle"
+                       text="Overview"
+                       styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="semesterLabel"
+                       text="2025/2026 Second Semester"
+                       styleClass="semester-label-dark"/>
+            </HBox>
+
+            <Separator/>
+
+            <!-- Dynamic Content Area -->
+            <ScrollPane fitToWidth="true"
+                        VBox.vgrow="ALWAYS"
+                        styleClass="content-scroll">
+                <VBox fx:id="contentArea" spacing="24"
+                      styleClass="content-area">
+                    <padding>
+                        <Insets top="24" right="24"
+                                bottom="24" left="24"/>
+                    </padding>
+
+                    <!-- Welcome Banner -->
+                    <HBox styleClass="welcome-banner"
+                          alignment="CENTER_LEFT" spacing="16">
+                        <padding>
+                            <Insets top="20" right="24"
+                                    bottom="20" left="24"/>
+                        </padding>
+                        <VBox spacing="4">
+                            <Label fx:id="welcomeLabel"
+                                   text="Welcome back!"
+                                   styleClass="welcome-title"/>
+                            <Label fx:id="dateLabel"
+                                   styleClass="welcome-date"/>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <VBox alignment="CENTER_RIGHT" spacing="4">
+                            <Label fx:id="courseCountLabel"
+                                   text="0 Courses"
+                                   styleClass="semester-label"/>
+                            <Label fx:id="totalStudentsLabel"
+                                   text="0 Students"
+                                   styleClass="year-label"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Stat Cards -->
+                    <HBox spacing="16">
+                        <VBox styleClass="stat-card"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <padding>
+                                <Insets top="20" right="16"
+                                        bottom="20" left="16"/>
+                            </padding>
+                            <Label text="📚" styleClass="stat-icon"/>
+                            <Label fx:id="coursesStatLabel"
+                                   text="0"
+                                   styleClass="stat-value"/>
+                            <Label text="My Courses"
+                                   styleClass="stat-title"/>
+                        </VBox>
+                        <VBox styleClass="stat-card"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <padding>
+                                <Insets top="20" right="16"
+                                        bottom="20" left="16"/>
+                            </padding>
+                            <Label text="👥" styleClass="stat-icon"/>
+                            <Label fx:id="studentsStatLabel"
+                                   text="0"
+                                   styleClass="stat-value"/>
+                            <Label text="Total Students"
+                                   styleClass="stat-title"/>
+                        </VBox>
+                        <VBox styleClass="stat-card, stat-card-warning"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <padding>
+                                <Insets top="20" right="16"
+                                        bottom="20" left="16"/>
+                            </padding>
+                            <Label text="📝" styleClass="stat-icon"/>
+                            <Label fx:id="assignmentsStatLabel"
+                                   text="0"
+                                   styleClass="stat-value"/>
+                            <Label text="Assignments"
+                                   styleClass="stat-title"/>
+                        </VBox>
+                        <VBox styleClass="stat-card, stat-card-info"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <padding>
+                                <Insets top="20" right="16"
+                                        bottom="20" left="16"/>
+                            </padding>
+                            <Label text="📊" styleClass="stat-icon"/>
+                            <Label fx:id="gradesStatLabel"
+                                   text="0"
+                                   styleClass="stat-value"/>
+                            <Label text="Grades Entered"
+                                   styleClass="stat-title"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- My Courses Overview -->
+                    <VBox styleClass="section-card" spacing="12">
+                        <padding>
+                            <Insets top="20" right="20"
+                                    bottom="20" left="20"/>
+                        </padding>
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="My Courses"
+                                   styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="Manage"
+                                    onAction="#handleNavMyCourses"
+                                    styleClass="link-button"/>
+                        </HBox>
+                        <TableView fx:id="overviewCoursesTable"
+                                   prefHeight="200">
+                            <columns>
+                                <TableColumn fx:id="overviewCodeCol"
+                                             text="Code" prefWidth="80"/>
+                                <TableColumn fx:id="overviewNameCol"
+                                             text="Course Name"
+                                             prefWidth="220"/>
+                                <TableColumn fx:id="overviewCreditsCol"
+                                             text="Credits" prefWidth="60"/>
+                                <TableColumn fx:id="overviewStudentsCol"
+                                             text="Students" prefWidth="80"/>
+                                <TableColumn fx:id="overviewSemesterCol"
+                                             text="Semester" prefWidth="160"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                    <!-- Recent Announcements -->
+                    <VBox styleClass="section-card" spacing="12">
+                        <padding>
+                            <Insets top="20" right="20"
+                                    bottom="20" left="20"/>
+                        </padding>
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="📢 Recent Announcements"
+                                   styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="Post New"
+                                    onAction="#handleNavAnnouncements"
+                                    styleClass="primary-button"/>
+                        </HBox>
+                        <ListView fx:id="announcementsList"
+                                  prefHeight="150"
+                                  styleClass="notification-list"/>
+                    </VBox>
+
+                </VBox>
+            </ScrollPane>
+
+            <!-- Status Bar -->
+            <HBox styleClass="status-bar"
+                  alignment="CENTER_LEFT" spacing="12">
+                <padding>
+                    <Insets top="8" right="16"
+                            bottom="8" left="16"/>
+                </padding>
+                <Circle radius="5" styleClass="status-dot"/>
+                <Label fx:id="statusLabel"
+                       text="Ready"
+                       styleClass="status-text"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="statsLabel"
+                       styleClass="stats-text"/>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

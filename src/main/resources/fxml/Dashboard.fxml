@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.dashboard.controller.DashboardController"
+            styleClass="root">
+
+    <!-- ── Sidebar Navigation ─────────────────────────────────────── -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="220" spacing="0">
+
+            <!-- Profile Section -->
+            <VBox styleClass="sidebar-profile" alignment="CENTER" spacing="8">
+                <padding><Insets top="30" bottom="20"/></padding>
+                <Circle fx:id="profileCircle" radius="40" styleClass="profile-avatar"/>
+                <Label fx:id="studentNameLabel" text="Student Name" styleClass="sidebar-name"/>
+                <Label fx:id="studentMajorLabel" text="Major" styleClass="sidebar-major"/>
+                <Label fx:id="gpaLabel" text="GPA: --" styleClass="sidebar-gpa"/>
+            </VBox>
+
+            <Separator styleClass="sidebar-separator"/>
+
+            <!-- Navigation Buttons -->
+            <VBox styleClass="nav-menu" spacing="4">
+                <padding><Insets top="16" left="12" right="12" bottom="16"/></padding>
+
+                <Button fx:id="navHome" text="🏠  Home" onAction="#handleNavHome"
+                        styleClass="nav-button, nav-active" maxWidth="Infinity"/>
+                <Button fx:id="navCourses" text="📚  Courses" onAction="#handleNavCourses"
+                        styleClass="nav-button" maxWidth="Infinity"/>
+                <Button fx:id="navAssignments" text="📝  Assignments" onAction="#handleNavAssignments"
+                        styleClass="nav-button" maxWidth="Infinity"/>
+                <Button fx:id="navQuizzes" text="✏️  Quizzes" onAction="#handleNavQuizzes"
+                        styleClass="nav-button" maxWidth="Infinity"/>
+                <Button fx:id="navGrades" text="📊  Grades" onAction="#handleNavGrades"
+                        styleClass="nav-button" maxWidth="Infinity"/>
+                <Button fx:id="navCalendar" text="📅  Calendar" onAction="#handleNavCalendar"
+                        styleClass="nav-button" maxWidth="Infinity"/>
+                <Button fx:id="navNotifications" text="🔔  Notifications" onAction="#handleNavNotifications"
+                        styleClass="nav-button" maxWidth="Infinity"/>
+                <Button fx:id="navProfile"
+                        text="👤  My Profile"
+                        onAction="#handleNavProfile"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navTranscript"
+                        text="📜  Transcript"
+                        onAction="#handleNavTranscript"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navExport"
+                        text="📄  Export PDF"
+                        onAction="#handleExportPDF"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navRegistration"
+                        text="📋  Registration"
+                        onAction="#handleNavRegistration"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navFees"
+                        text="💰  Fee Payment"
+                        onAction="#handleNavFees"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+                <Button fx:id="navTimetable"
+                        text="📅  Exam Timetable"
+                        onAction="#handleNavTimetable"
+                        styleClass="nav-button"
+                        maxWidth="Infinity"/>
+            </VBox>
+
+            <!-- Spacer -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Logout -->
+            <VBox styleClass="sidebar-footer">
+                <padding><Insets top="10" left="12" right="12" bottom="20"/></padding>
+                <Button text="⏻  Logout" onAction="#handleLogout"
+                        styleClass="logout-button" maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- ── Main Content Area ───────────────────────────────────────── -->
+    <center>
+        <VBox styleClass="main-content" spacing="0">
+
+            <!-- Top Bar -->
+            <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="16">
+                <padding><Insets top="16" right="24" bottom="16" left="24"/></padding>
+                <Label fx:id="pageTitle" text="Dashboard" styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="searchField" promptText="🔍  Search..." styleClass="search-field" prefWidth="220"/>
+                <Button fx:id="darkModeBtn"
+                        text="🌙"
+                        onAction="#handleDarkMode"
+                        styleClass="icon-button"
+                        style="-fx-font-size: 15px;"/>
+                <Button text="🔔" onAction="#handleNavNotifications" styleClass="icon-button"/>
+                <Label fx:id="notificationBadge" text="3" styleClass="badge"/>
+            </HBox>
+
+            <Separator/>
+
+            <!-- Scrollable Page Content -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="content-scroll">
+                <VBox fx:id="contentArea" spacing="24" styleClass="content-area">
+                    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+                    <!-- Welcome Banner -->
+                    <HBox styleClass="welcome-banner" alignment="CENTER_LEFT" spacing="16">
+                        <padding><Insets top="20" right="24" bottom="20" left="24"/></padding>
+                        <VBox spacing="4">
+                            <Label fx:id="welcomeLabel" text="Welcome back, Student! 👋"
+                                   styleClass="welcome-title"/>
+                            <Label fx:id="dateLabel" text="Monday, June 08 2026"
+                                   styleClass="welcome-date"/>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <VBox alignment="CENTER_RIGHT" spacing="4">
+                            <Label fx:id="semesterLabel" text="Fall 2025" styleClass="semester-label"/>
+                            <Label fx:id="yearLabel" text="Sophomore" styleClass="year-label"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Stats Cards Row -->
+                    <HBox spacing="16">
+                        <!-- GPA Card -->
+                        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" spacing="8" alignment="CENTER">
+                            <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+                            <Label text="📈" styleClass="stat-icon"/>
+                            <Label fx:id="gpaStatLabel" text="3.75" styleClass="stat-value"/>
+                            <Label text="Current GPA" styleClass="stat-title"/>
+                        </VBox>
+
+                        <!-- Courses Card -->
+                        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" spacing="8" alignment="CENTER">
+                            <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+                            <Label text="📚" styleClass="stat-icon"/>
+                            <Label fx:id="coursesStatLabel" text="5" styleClass="stat-value"/>
+                            <Label text="Courses" styleClass="stat-title"/>
+                        </VBox>
+
+                        <!-- Pending Assignments Card -->
+                        <VBox styleClass="stat-card, stat-card-warning" HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+                            <Label text="📝" styleClass="stat-icon"/>
+                            <Label fx:id="pendingStatLabel" text="3" styleClass="stat-value"/>
+                            <Label text="Pending" styleClass="stat-title"/>
+                        </VBox>
+
+                        <!-- Upcoming Quizzes Card -->
+                        <VBox styleClass="stat-card, stat-card-info" HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+                            <Label text="✏️" styleClass="stat-icon"/>
+                            <Label fx:id="quizzesStatLabel" text="2" styleClass="stat-value"/>
+                            <Label text="Quizzes Due" styleClass="stat-title"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Courses Progress Section -->
+                    <VBox styleClass="section-card" spacing="16">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="Course Progress" styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="View All" onAction="#handleNavCourses"
+                                    styleClass="link-button"/>
+                        </HBox>
+                        <VBox fx:id="courseProgressContainer" spacing="12"/>
+                    </VBox>
+
+                    <!-- Bottom Row: Upcoming + Notifications -->
+                    <HBox spacing="16">
+
+                        <!-- Upcoming Deadlines -->
+                        <VBox styleClass="section-card" HBox.hgrow="ALWAYS" spacing="12">
+                            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                            <HBox alignment="CENTER_LEFT">
+                                <Label text="📅 Upcoming Deadlines" styleClass="section-title"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Button text="Calendar" onAction="#handleNavCalendar"
+                                        styleClass="link-button"/>
+                            </HBox>
+                            <ListView fx:id="upcomingList" prefHeight="200"
+                                      styleClass="deadline-list"/>
+                        </VBox>
+
+                        <!-- Recent Notifications -->
+                        <VBox styleClass="section-card" HBox.hgrow="ALWAYS" spacing="12">
+                            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                            <HBox alignment="CENTER_LEFT">
+                                <Label text="🔔 Notifications" styleClass="section-title"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Button text="View All" onAction="#handleNavNotifications"
+                                        styleClass="link-button"/>
+                            </HBox>
+                            <ListView fx:id="notificationsList" prefHeight="200"
+                                      styleClass="notification-list"/>
+                        </VBox>
+
+                    </HBox>
+
+                    <!-- Grade Chart -->
+                    <VBox styleClass="section-card" spacing="12">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <Label text="📊 Grade Overview" styleClass="section-title"/>
+                        <BarChart fx:id="gradeChart" prefHeight="280" animated="true">
+                            <xAxis><CategoryAxis label="Courses"/></xAxis>
+                            <yAxis><NumberAxis label="Score" lowerBound="0"
+                                               upperBound="100" tickUnit="10"/></yAxis>
+                        </BarChart>
+                    </VBox>
+
+                </VBox>
+            </ScrollPane>
+
+            <!-- Status Bar -->
+            <HBox styleClass="status-bar" alignment="CENTER_LEFT" spacing="12">
+                <padding><Insets top="8" right="16" bottom="8" left="16"/></padding>
+                <Circle radius="5" styleClass="status-dot"/>
+                <Label fx:id="statusLabel" text="Ready" styleClass="status-text"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="statsLabel" styleClass="stats-text"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

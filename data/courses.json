@@ -1,0 +1,101 @@
+[
+  {
+    "courseCode": "CSC302",
+    "courseName": "Prog. \u0026 Problem Analysis II (Java)",
+    "credits": 3,
+    "instructor": "Mr. Elliot Attipoe",
+    "schedule": "TBA",
+    "progressPercent": 0.0,
+    "semester": "2025/2026 Second Semester",
+    "assignments": [],
+    "materials": []
+  },
+  {
+    "courseCode": "CSC314",
+    "courseName": "Network Computing I",
+    "credits": 3,
+    "instructor": "Dr. Emmanuel Tetteh",
+    "schedule": "TBA",
+    "progressPercent": 0.0,
+    "semester": "2025/2026 Second Semester",
+    "assignments": [],
+    "materials": []
+  },
+  {
+    "courseCode": "CSC399",
+    "courseName": "Research Methods",
+    "credits": 3,
+    "instructor": "Mr. Sandro Amofa",
+    "schedule": "TBA",
+    "progressPercent": 0.0,
+    "semester": "2025/2026 Second Semester",
+    "assignments": [],
+    "materials": []
+  },
+  {
+    "courseCode": "MAT302",
+    "courseName": "Advanced Calculus II",
+    "credits": 3,
+    "instructor": "TBA",
+    "schedule": "TBA",
+    "progressPercent": 0.0,
+    "semester": "2025/2026 Second Semester",
+    "assignments": [],
+    "materials": []
+  },
+  {
+    "courseCode": "CSC312",
+    "courseName": "Human Computer Interface",
+    "credits": 3,
+    "instructor": "Mr. Benard Buckman",
+    "schedule": "TBA",
+    "progressPercent": 0.0,
+    "semester": "2025/2026 Second Semester",
+    "assignments": [],
+    "materials": []
+  },
+  {
+    "courseCode": "CSC316",
+    "courseName": "Web Technologies",
+    "credits": 3,
+    "instructor": "Mrs. Alimatu-Saadia Yussiff",
+    "schedule": "TBA",
+    "progressPercent": 0.0,
+    "semester": "2025/2026 Second Semester",
+    "assignments": [],
+    "materials": []
+  },
+  {
+    "courseCode": "ENT302",
+    "courseName": "Introduction to Entrepreneurship",
+    "credits": 2,
+    "instructor": "Dr. Richard Adu Agyapong",
+    "schedule": "TBA",
+    "progressPercent": 0.0,
+    "semester": "2025/2026 Second Semester",
+    "assignments": [],
+    "materials": []
+  },
+  {
+    "courseCode": "PHYS101",
+    "courseName": "Physics I",
+    "credits": 4,
+    "instructor": "Dr. Williams",
+    "schedule": "Mon/Wed 13:00",
+    "progressPercent": 0.0,
+    "semester": "Fall 2025",
+    "assignments": [],
+    "materials": []
+  },
+  {
+    "courseCode": "MATH101",
+    "courseName": "Calculus I",
+    "credits": 4,
+    "instructor": "Dr. Smith",
+    "schedule": "Mon/Wed 10:00",
+    "progressPercent": 0.0,
+    "semester": "Fall 2025",
+    "assignments": [],
+    "materials": []
+  }
+]

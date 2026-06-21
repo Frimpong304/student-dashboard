@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dashboard.controller.CalendarController"
+      spacing="16" styleClass="content-area">
+
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Academic Calendar"
+               styleClass="section-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="monthLabel" text=""
+               styleClass="semester-label-dark"/>
+    </HBox>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+        <!-- Deadline List -->
+        <VBox styleClass="section-card" spacing="12"
+              HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets top="20" right="20"
+                        bottom="20" left="20"/>
+            </padding>
+            <Label text="📅 All Upcoming Deadlines"
+                   styleClass="section-title"/>
+            <TableView fx:id="calendarTable"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="calDateCol"
+                                 text="Due Date"
+                                 prefWidth="110"/>
+                    <TableColumn fx:id="calCourseCol"
+                                 text="Course"
+                                 prefWidth="90"/>
+                    <TableColumn fx:id="calTitleCol"
+                                 text="Title"
+                                 prefWidth="200"/>
+                    <TableColumn fx:id="calTypeCol"
+                                 text="Type"
+                                 prefWidth="100"/>
+                    <TableColumn fx:id="calStatusCol"
+                                 text="Status"
+                                 prefWidth="130"/>
+                </columns>
+                <placeholder>
+                    <Label text="No upcoming deadlines."/>
+                </placeholder>
+            </TableView>
+        </VBox>
+
+        <!-- This Week -->
+        <VBox styleClass="section-card" spacing="12"
+              prefWidth="280">
+            <padding>
+                <Insets top="20" right="20"
+                        bottom="20" left="20"/>
+            </padding>
+            <Label text="This Week"
+                   styleClass="section-title"/>
+            <ListView fx:id="thisWeekList"
+                      VBox.vgrow="ALWAYS"
+                      styleClass="deadline-list"/>
+        </VBox>
+
+    </HBox>
+
+</VBox>

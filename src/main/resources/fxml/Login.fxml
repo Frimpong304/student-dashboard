@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.dashboard.controller.LoginController"
+           styleClass="login-root"
+           prefWidth="1100" prefHeight="700">
+
+    <VBox alignment="CENTER" spacing="0">
+
+        <!-- Login Card -->
+        <VBox styleClass="login-card" spacing="0"
+              alignment="CENTER" maxWidth="440">
+
+            <!-- UCC Green Header Strip -->
+            <VBox styleClass="ucc-header-strip"
+                  alignment="CENTER" spacing="4"
+                  maxWidth="Infinity">
+                <padding>
+                    <Insets top="16" bottom="16"/>
+                </padding>
+                <Label text="UNIVERSITY OF CAPE COAST"
+                       styleClass="ucc-header-text"/>
+                <Label text="SCHOOL OF PHYSICAL SCIENCES"
+                       style="-fx-font-size: 10px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: rgba(255,215,0,0.75);"/>
+            </VBox>
+
+            <!-- Card Body -->
+            <VBox spacing="16" alignment="CENTER">
+                <padding>
+                    <Insets top="28" right="36"
+                            bottom="28" left="36"/>
+                </padding>
+
+                <!-- Avatar -->
+                <StackPane alignment="CENTER">
+                    <Circle radius="36"
+                            styleClass="profile-avatar-bg"/>
+                    <Label text="UCC"
+                           style="-fx-font-size: 13px;
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: #FFD700;"/>
+                </StackPane>
+
+                <!-- Title -->
+                <VBox spacing="4" alignment="CENTER">
+                    <Label text="Student Portal"
+                           styleClass="login-title"/>
+                    <Label text="Sign in with your UCC credentials"
+                           styleClass="login-subtitle"/>
+                </VBox>
+
+                <Separator/>
+
+                <!-- Email -->
+                <VBox spacing="6" maxWidth="Infinity">
+                    <Label text="Email Address"
+                           styleClass="login-field-label"/>
+                    <TextField fx:id="emailField"
+                               promptText="index@ucc.edu.gh"
+                               styleClass="login-field"
+                               maxWidth="Infinity"/>
+                </VBox>
+
+                <!-- Password -->
+                <VBox spacing="6" maxWidth="Infinity">
+                    <Label text="Password"
+                           styleClass="login-field-label"/>
+                    <PasswordField fx:id="passwordField"
+                                   promptText="Enter your password"
+                                   styleClass="login-field"
+                                   maxWidth="Infinity"/>
+                </VBox>
+
+                <!-- Error Label -->
+                <Label fx:id="errorLabel"
+                       text=""
+                       styleClass="login-error"
+                       visible="false"
+                       managed="false"
+                       wrapText="true"
+                       maxWidth="Infinity"/>
+
+                <!-- Login Button -->
+                <Button text="Sign In"
+                        onAction="#handleLogin"
+                        styleClass="login-button"
+                        maxWidth="Infinity"
+                        defaultButton="true"/>
+
+                <Separator/>
+
+                <!-- Footer -->
+                <Label text="paul kissi frimpong"
+                       style="-fx-font-size: 10px;
+                              -fx-text-fill: #8aaa8a;"/>
+
+            </VBox>
+        </VBox>
+    </VBox>
+
+</StackPane>

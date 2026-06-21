@@ -1,0 +1,211 @@
+[
+  {
+    "id": 1,
+    "studentId": 1001,
+    "courseCode": "CSC302",
+    "title": "Java Quiz 1 - OOP Concepts",
+    "dueDate": "2026-05-22",
+    "completed": true,
+    "score": 92.0,
+    "totalQuestions": 10,
+    "durationMinutes": 20
+  },
+  {
+    "id": 2,
+    "studentId": 1001,
+    "courseCode": "CSC302",
+    "title": "Java Quiz 2 - Inheritance",
+    "dueDate": "2026-06-01",
+    "completed": true,
+    "score": 93.0,
+    "totalQuestions": 10,
+    "durationMinutes": 20
+  },
+  {
+    "id": 3,
+    "studentId": 1001,
+    "courseCode": "CSC302",
+    "title": "Java Quiz 3 - Collections",
+    "dueDate": "2026-06-14",
+    "completed": false,
+    "score": -1.0,
+    "totalQuestions": 10,
+    "durationMinutes": 20
+  },
+  {
+    "id": 4,
+    "studentId": 1001,
+    "courseCode": "CSC314",
+    "title": "Networking Quiz 1 - OSI Model",
+    "dueDate": "2026-05-23",
+    "completed": true,
+    "score": 91.0,
+    "totalQuestions": 12,
+    "durationMinutes": 25
+  },
+  {
+    "id": 5,
+    "studentId": 1001,
+    "courseCode": "CSC314",
+    "title": "Networking Quiz 2 - TCP/IP",
+    "dueDate": "2026-06-03",
+    "completed": true,
+    "score": 90.0,
+    "totalQuestions": 12,
+    "durationMinutes": 25
+  },
+  {
+    "id": 6,
+    "studentId": 1001,
+    "courseCode": "CSC314",
+    "title": "Networking Quiz 3 - Subnetting",
+    "dueDate": "2026-06-15",
+    "completed": false,
+    "score": -1.0,
+    "totalQuestions": 12,
+    "durationMinutes": 25
+  },
+  {
+    "id": 7,
+    "studentId": 1001,
+    "courseCode": "CSC399",
+    "title": "Research Quiz 1 - Research Types",
+    "dueDate": "2026-05-26",
+    "completed": true,
+    "score": 90.0,
+    "totalQuestions": 10,
+    "durationMinutes": 15
+  },
+  {
+    "id": 8,
+    "studentId": 1001,
+    "courseCode": "CSC399",
+    "title": "Research Quiz 2 - Data Collection",
+    "dueDate": "2026-06-17",
+    "completed": false,
+    "score": -1.0,
+    "totalQuestions": 10,
+    "durationMinutes": 15
+  },
+  {
+    "id": 9,
+    "studentId": 1001,
+    "courseCode": "MAT302",
+    "title": "Calculus Quiz 1 - Limits",
+    "dueDate": "2026-05-20",
+    "completed": true,
+    "score": 82.0,
+    "totalQuestions": 15,
+    "durationMinutes": 30
+  },
+  {
+    "id": 10,
+    "studentId": 1001,
+    "courseCode": "MAT302",
+    "title": "Calculus Quiz 2 - Derivatives",
+    "dueDate": "2026-05-31",
+    "completed": true,
+    "score": 84.0,
+    "totalQuestions": 15,
+    "durationMinutes": 30
+  },
+  {
+    "id": 11,
+    "studentId": 1001,
+    "courseCode": "MAT302",
+    "title": "Calculus Quiz 3 - Integration",
+    "dueDate": "2026-06-13",
+    "completed": false,
+    "score": -1.0,
+    "totalQuestions": 15,
+    "durationMinutes": 30
+  },
+  {
+    "id": 12,
+    "studentId": 1001,
+    "courseCode": "CSC312",
+    "title": "HCI Quiz 1 - Design Principles",
+    "dueDate": "2026-05-25",
+    "completed": true,
+    "score": 94.0,
+    "totalQuestions": 10,
+    "durationMinutes": 15
+  },
+  {
+    "id": 13,
+    "studentId": 1001,
+    "courseCode": "CSC312",
+    "title": "HCI Quiz 2 - Usability Testing",
+    "dueDate": "2026-06-16",
+    "completed": false,
+    "score": -1.0,
+    "totalQuestions": 10,
+    "durationMinutes": 15
+  },
+  {
+    "id": 14,
+    "studentId": 1001,
+    "courseCode": "CSC316",
+    "title": "Web Quiz 1 - HTML/CSS",
+    "dueDate": "2026-05-22",
+    "completed": true,
+    "score": 97.0,
+    "totalQuestions": 10,
+    "durationMinutes": 20
+  },
+  {
+    "id": 15,
+    "studentId": 1001,
+    "courseCode": "CSC316",
+    "title": "Web Quiz 2 - JavaScript DOM",
+    "dueDate": "2026-06-02",
+    "completed": true,
+    "score": 96.0,
+    "totalQuestions": 10,
+    "durationMinutes": 20
+  },
+  {
+    "id": 16,
+    "studentId": 1001,
+    "courseCode": "CSC316",
+    "title": "Web Quiz 3 - React",
+    "dueDate": "2026-06-14",
+    "completed": false,
+    "score": -1.0,
+    "totalQuestions": 10,
+    "durationMinutes": 20
+  },
+  {
+    "id": 17,
+    "studentId": 1001,
+    "courseCode": "ENT302",
+    "title": "Entrepreneurship Quiz 1 - Concepts",
+    "dueDate": "2026-05-27",
+    "completed": true,
+    "score": 92.0,
+    "totalQuestions": 10,
+    "durationMinutes": 15
+  },
+  {
+    "id": 18,
+    "studentId": 1001,
+    "courseCode": "ENT302",
+    "title": "Entrepreneurship Quiz 2 - Business Models",
+    "dueDate": "2026-06-18",
+    "completed": false,
+    "score": -1.0,
+    "totalQuestions": 10,
+    "durationMinutes": 15
+  },
+  {
+    "id": 19,
+    "studentId": 1002,
+    "courseCode": "PHYS101",
+    "title": "Quiz 1 - Kinematics",
+    "dueDate": "2026-06-12",
+    "completed": false,
+    "score": -1.0,
+    "totalQuestions": 12,
+    "durationMinutes": 25
+  }
+]

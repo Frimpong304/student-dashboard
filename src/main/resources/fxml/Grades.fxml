@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dashboard.controller.GradesController"
+      spacing="16" styleClass="content-area">
+
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <Label text="Grade Tracker" styleClass="section-title"/>
+
+    <!-- GPA Card -->
+    <HBox spacing="16">
+        <VBox styleClass="welcome-banner" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="8">
+            <padding><Insets top="20" bottom="20"/></padding>
+            <Label text="Cumulative GPA" styleClass="welcome-date"/>
+            <Label fx:id="gpaLabel" text="0.00"
+                   styleClass="welcome-title"/>
+            <Label fx:id="gpaRemark" text="--"
+                   styleClass="welcome-date"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="8">
+            <padding><Insets top="20" bottom="20"/></padding>
+            <Label text="📚" styleClass="stat-icon"/>
+            <Label fx:id="coursesGradedLabel" text="0"
+                   styleClass="stat-value"/>
+            <Label text="Courses Graded" styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="8">
+            <padding><Insets top="20" bottom="20"/></padding>
+            <Label text="🏆" styleClass="stat-icon"/>
+            <Label fx:id="highestLabel" text="--"
+                   styleClass="stat-value"/>
+            <Label text="Highest Score" styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="8">
+            <padding><Insets top="20" bottom="20"/></padding>
+            <Label text="📉" styleClass="stat-icon"/>
+            <Label fx:id="lowestLabel" text="--"
+                   styleClass="stat-value"/>
+            <Label text="Lowest Score" styleClass="stat-title"/>
+        </VBox>
+    </HBox>
+
+    <!-- Grades Table + Chart -->
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+        <!-- Table -->
+        <VBox styleClass="section-card" spacing="12"
+              HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets top="20" right="20"
+                        bottom="20" left="20"/>
+            </padding>
+            <Label text="Course Grades"
+                   styleClass="section-title"/>
+            <TableView fx:id="gradesTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="gCodeCol"
+                                 text="Code" prefWidth="80"/>
+                    <TableColumn fx:id="gNameCol"
+                                 text="Course" prefWidth="180"/>
+                    <TableColumn fx:id="gScoreCol"
+                                 text="Score" prefWidth="80"/>
+                    <TableColumn fx:id="gLetterCol"
+                                 text="Grade" prefWidth="70"/>
+                    <TableColumn fx:id="gPointsCol"
+                                 text="Points" prefWidth="70"/>
+                    <TableColumn fx:id="gSemCol"
+                                 text="Semester" prefWidth="160"/>
+                </columns>
+                <placeholder>
+                    <Label text="No grades recorded yet."/>
+                </placeholder>
+            </TableView>
+        </VBox>
+
+        <!-- Chart -->
+        <VBox styleClass="section-card" spacing="12"
+              prefWidth="320">
+            <padding>
+                <Insets top="20" right="20"
+                        bottom="20" left="20"/>
+            </padding>
+            <Label text="Score Distribution"
+                   styleClass="section-title"/>
+            <BarChart fx:id="gradesChart"
+                      VBox.vgrow="ALWAYS" animated="true"
+                      legendVisible="false">
+                <xAxis>
+                    <CategoryAxis label="Course"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Score"
+                                lowerBound="0"
+                                upperBound="100"
+                                tickUnit="10"/>
+                </yAxis>
+            </BarChart>
+        </VBox>
+
+    </HBox>
+
+</VBox>

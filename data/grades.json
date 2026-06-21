@@ -1,0 +1,65 @@
+[
+  {
+    "courseCode": "CSC302",
+    "courseName": "Prog. \u0026 Problem Analysis II (Java)",
+    "score": 92.0,
+    "letterGrade": "A",
+    "semester": "2025/2026 Second Semester"
+  },
+  {
+    "courseCode": "CSC314",
+    "courseName": "Network Computing I",
+    "score": 91.0,
+    "letterGrade": "A",
+    "semester": "2025/2026 Second Semester"
+  },
+  {
+    "courseCode": "CSC399",
+    "courseName": "Research Methods",
+    "score": 90.0,
+    "letterGrade": "A",
+    "semester": "2025/2026 Second Semester"
+  },
+  {
+    "courseCode": "MAT302",
+    "courseName": "Advanced Calculus II",
+    "score": 83.0,
+    "letterGrade": "B",
+    "semester": "2025/2026 Second Semester"
+  },
+  {
+    "courseCode": "CSC312",
+    "courseName": "Human Computer Interface",
+    "score": 94.0,
+    "letterGrade": "A",
+    "semester": "2025/2026 Second Semester"
+  },
+  {
+    "courseCode": "CSC316",
+    "courseName": "Web Technologies",
+    "score": 97.0,
+    "letterGrade": "A",
+    "semester": "2025/2026 Second Semester"
+  },
+  {
+    "courseCode": "ENT302",
+    "courseName": "Introduction to Entrepreneurship",
+    "score": 92.0,
+    "letterGrade": "A",
+    "semester": "2025/2026 Second Semester"
+  },
+  {
+    "courseCode": "PHYS101",
+    "courseName": "Physics I",
+    "score": 78.0,
+    "letterGrade": "C",
+    "semester": "Fall 2025"
+  },
+  {
+    "courseCode": "MATH101",
+    "courseName": "Calculus I",
+    "score": 85.5,
+    "letterGrade": "B",
+    "semester": "Fall 2025"
+  }
+]

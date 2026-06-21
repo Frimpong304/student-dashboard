@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dashboard.controller.FeesController"
+      spacing="16" styleClass="content-area">
+
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <Label text="Fee Payment" styleClass="section-title"/>
+
+    <!-- Summary Cards -->
+    <HBox spacing="16">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="6">
+            <padding><Insets top="16" bottom="16"/></padding>
+            <Label text="💰" styleClass="stat-icon"/>
+            <Label fx:id="totalFeesLabel" text="GH₵ 0.00"
+                   styleClass="stat-value"
+                   style="-fx-font-size: 20px;"/>
+            <Label text="Total Fees"
+                   styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="6">
+            <padding><Insets top="16" bottom="16"/></padding>
+            <Label text="✅" styleClass="stat-icon"/>
+            <Label fx:id="totalPaidLabel" text="GH₵ 0.00"
+                   styleClass="stat-value"
+                   style="-fx-font-size: 20px;
+                          -fx-text-fill: #006B3F;"/>
+            <Label text="Amount Paid"
+                   styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card, stat-card-warning"
+              HBox.hgrow="ALWAYS" alignment="CENTER"
+              spacing="6">
+            <padding><Insets top="16" bottom="16"/></padding>
+            <Label text="⚠️" styleClass="stat-icon"/>
+            <Label fx:id="outstandingLabel" text="GH₵ 0.00"
+                   styleClass="stat-value"
+                   style="-fx-font-size: 20px;
+                          -fx-text-fill: #c0392b;"/>
+            <Label text="Outstanding"
+                   styleClass="stat-title"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+              alignment="CENTER" spacing="6">
+            <padding><Insets top="16" bottom="16"/></padding>
+            <Label text="📋" styleClass="stat-icon"/>
+            <Label fx:id="feeStatusLabel"
+                   text="--" styleClass="stat-value"
+                   style="-fx-font-size: 16px;"/>
+            <Label text="Fee Status"
+                   styleClass="stat-title"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+        <!-- Fee Breakdown -->
+        <VBox styleClass="section-card" spacing="12"
+              HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets top="20" right="20"
+                        bottom="20" left="20"/>
+            </padding>
+            <Label text="Fee Breakdown"
+                   styleClass="section-title"/>
+
+            <TableView fx:id="feesTable"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="fDescCol"
+                                 text="Description"
+                                 prefWidth="160"/>
+                    <TableColumn fx:id="fSemCol"
+                                 text="Semester"
+                                 prefWidth="170"/>
+                    <TableColumn fx:id="fAmountCol"
+                                 text="Amount (GH₵)"
+                                 prefWidth="110"/>
+                    <TableColumn fx:id="fPaidCol"
+                                 text="Paid (GH₵)"
+                                 prefWidth="100"/>
+                    <TableColumn fx:id="fBalanceCol"
+                                 text="Balance (GH₵)"
+                                 prefWidth="110"/>
+                    <TableColumn fx:id="fStatusCol"
+                                 text="Status"
+                                 prefWidth="90"/>
+                    <TableColumn fx:id="fDueCol"
+                                 text="Due Date"
+                                 prefWidth="100"/>
+                </columns>
+                <placeholder>
+                    <Label text="No fee records found."/>
+                </placeholder>
+            </TableView>
+
+            <Label fx:id="feedbackLabel" text=""
+                   styleClass="login-error"/>
+        </VBox>
+
+        <!-- Payment History -->
+        <VBox styleClass="section-card" spacing="12"
+              prefWidth="300">
+            <padding>
+                <Insets top="20" right="20"
+                        bottom="20" left="20"/>
+            </padding>
+            <Label text="Payment History"
+                   styleClass="section-title"/>
+            <ListView fx:id="paymentHistoryList"
+                      VBox.vgrow="ALWAYS"
+                      styleClass="notification-list"/>
+        </VBox>
+
+    </HBox>
+</VBox>

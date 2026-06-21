@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dashboard.controller.ProfileController"
+      spacing="20" styleClass="content-area">
+
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <Label text="My Profile" styleClass="section-title"/>
+
+    <HBox spacing="20">
+
+        <!-- Profile Info Card -->
+        <VBox styleClass="section-card" spacing="16"
+              HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets top="24" right="24"
+                        bottom="24" left="24"/>
+            </padding>
+
+            <!-- Avatar -->
+            <HBox alignment="CENTER_LEFT" spacing="16">
+                <Circle fx:id="avatarCircle"
+                        radius="40"
+                        styleClass="profile-avatar-bg"/>
+                <VBox spacing="4">
+                    <Label fx:id="profileNameLabel"
+                           text="--"
+                           styleClass="sidebar-name"
+                           style="-fx-text-fill: #1a1f36;"/>
+                    <Label fx:id="profileRoleLabel"
+                           text="--"
+                           styleClass="sidebar-major"/>
+                    <Label fx:id="profileNumLabel"
+                           text="--"
+                           styleClass="sidebar-major"/>
+                </VBox>
+            </HBox>
+
+            <Separator/>
+
+            <!-- Edit Info -->
+            <Label text="Edit Information"
+                   styleClass="section-title"/>
+
+            <GridPane hgap="16" vgap="12">
+                <Label text="Full Name:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"
+                       styleClass="login-field-label"/>
+                <TextField fx:id="nameField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"
+                           styleClass="login-field"
+                           prefWidth="260"/>
+
+                <Label text="Email:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"
+                       styleClass="login-field-label"/>
+                <TextField fx:id="emailField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"
+                           styleClass="login-field"
+                           prefWidth="260"/>
+
+                <Label text="Major:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"
+                       styleClass="login-field-label"/>
+                <TextField fx:id="majorField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"
+                           styleClass="login-field"
+                           prefWidth="260"/>
+
+                <Label text="Year:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"
+                       styleClass="login-field-label"/>
+                <ComboBox fx:id="yearCombo"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="3"
+                          prefWidth="260"/>
+            </GridPane>
+
+            <Button text="💾  Save Profile Changes"
+                    onAction="#handleSaveProfile"
+                    styleClass="primary-button"
+                    maxWidth="Infinity"/>
+
+            <Label fx:id="profileFeedback"
+                   text="" styleClass="login-error"/>
+        </VBox>
+
+        <!-- Password Change Card -->
+        <VBox styleClass="section-card" spacing="16"
+              prefWidth="340">
+            <padding>
+                <Insets top="24" right="24"
+                        bottom="24" left="24"/>
+            </padding>
+
+            <Label text="🔒 Change Password"
+                   styleClass="section-title"/>
+
+            <Label text="Current Password:"
+                   styleClass="login-field-label"/>
+            <PasswordField fx:id="currentPassField"
+                           styleClass="login-field"
+                           promptText="Enter current password"/>
+
+            <Label text="New Password:"
+                   styleClass="login-field-label"/>
+            <PasswordField fx:id="newPassField"
+                           styleClass="login-field"
+                           promptText="At least 8 characters"/>
+
+            <Label text="Confirm New Password:"
+                   styleClass="login-field-label"/>
+            <PasswordField fx:id="confirmPassField"
+                           styleClass="login-field"
+                           promptText="Repeat new password"/>
+
+            <!-- Password strength bar -->
+            <VBox spacing="4">
+                <Label text="Password Strength:"
+                       styleClass="login-field-label"/>
+                <ProgressBar fx:id="strengthBar"
+                             maxWidth="Infinity"
+                             progress="0"/>
+                <Label fx:id="strengthLabel"
+                       text="" styleClass="stats-text"/>
+            </VBox>
+
+            <Button text="🔒  Update Password"
+                    onAction="#handleChangePassword"
+                    styleClass="primary-button"
+                    maxWidth="Infinity"/>
+
+            <Label fx:id="passwordFeedback"
+                   text="" styleClass="login-error"/>
+
+            <!-- Account Info -->
+            <Separator/>
+            <Label text="Account Info"
+                   styleClass="login-field-label"/>
+            <GridPane hgap="12" vgap="8">
+                <Label text="Role:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"
+                       styleClass="stats-text"/>
+                <Label fx:id="infoRole"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="0"/>
+                <Label text="Session:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"
+                       styleClass="stats-text"/>
+                <Label fx:id="infoSession"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="1"/>
+                <Label text="Email:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"
+                       styleClass="stats-text"/>
+                <Label fx:id="infoEmail"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="2"/>
+            </GridPane>
+        </VBox>
+    </HBox>
+</VBox>

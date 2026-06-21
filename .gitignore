@@ -1,0 +1,27 @@
+# Build output
+/target/
+/output/
+/out/
+
+# Maven leftover (if any)
+apache-maven-3.9.6/
+apache-maven-3.9.6-bin.tar.gz
+
+# Packaged apps/installers
+*.app
+*.dmg
+*.jar
+
+# Database
+ucc_portal.db
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Mac system files
+.DS_Store
+
+# Logs
+*.log
