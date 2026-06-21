@@ -1,4 +1,4 @@
-# 🎓 UCC Student Portal
+#  UCC Student Portal
 
 A full-featured desktop student information system built with **JavaFX** 
 and **SQLite**, modeled after the University of Cape Coast (UCC) online 
@@ -12,7 +12,7 @@ each with a dedicated dashboard and complete workflow.
 
 ---
 
-## 📖 Overview
+##  Overview
 
 This project simulates a real university portal where:
 - **Students** register for courses, view grades, track assignments and 
@@ -24,7 +24,7 @@ grade submissions before they're released to students.
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 | Component | Technology |
 |---|---|
@@ -38,9 +38,9 @@ grade submissions before they're released to students.
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🎓 Student
+###  Student
 - Secure login with hashed passwords
 - Dashboard with GPA, course progress, pending tasks at a glance
 - Course registration (self-service, within open registration windows)
@@ -56,7 +56,7 @@ grade submissions before they're released to students.
 - Dark mode toggle
 - Auto-logout after 30 minutes of inactivity
 
-### 👨‍🏫 Lecturer
+### ‍ Lecturer
 - Dashboard with course/student/assignment stats
 - Enter and update student grades per course
 - Submit grades for admin approval
@@ -65,7 +65,7 @@ grade submissions before they're released to students.
 - View enrolled students per course
 - Post course announcements
 
-### ⚙️ Admin
+### ️ Admin
 - Manage students, lecturers, and courses (add/edit/delete)
 - Manage course enrollments
 - **Grade approval workflow** — review and approve/reject lecturer 
@@ -77,7 +77,7 @@ summary
 
 ---
 
-## 🗄 Database Schema
+##  Database Schema
 
 17 tables including: `users`, `students`, `lecturers`, `courses`, 
 `enrollments`, `assignments`, `submissions`, `quizzes`, `quiz_results`, 
@@ -107,7 +107,7 @@ seeded automatically on first launch.
 
 ---
 
-## 🔑 Demo Credentials
+##  Demo Credentials
 
 | Role | Email | Password |
 |---|---|---|
@@ -117,7 +117,7 @@ seeded automatically on first launch.
 
 ---
 
-## 📦 Packaging as a Native App
+##  Packaging as a Native App
 
 To build a standalone Mac `.app`:
 
@@ -143,7 +143,7 @@ For a `.dmg` installer, change `--type app-image` to `--type dmg`.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 src/main/java/com/dashboard/
@@ -161,7 +161,7 @@ src/main/resources/
 
 ---
 
-## 🔒 Security
+##  Security
 
 - BCrypt password hashing (no plain-text passwords stored)
 - Prepared statements throughout (SQL injection protection)
@@ -171,14 +171,14 @@ src/main/resources/
 
 ---
 
-## 📜 License
+##  License
 
 This project was built for academic purposes as part of a university 
 coursework assignment.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 Built with guidance from Claude (Anthropic) as a learning project for 
 JavaFX, SQLite, and full-stack desktop application architecture.
