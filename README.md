@@ -86,7 +86,7 @@ summary
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - JDK 21+
